@@ -4,9 +4,11 @@ using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using JSONToDatabaseReader.Mappings;
 
 namespace JSONToDatabaseReader.Repository
 {
+    //TODO: https://github.com/FluentNHibernate/fluent-nhibernate/wiki/Getting-started
     public static class NHibernateHelper
     {
         private static Configuration _configuration;
@@ -53,7 +55,7 @@ namespace JSONToDatabaseReader.Repository
         {
             var mapper = new ModelMapper();
             //Add the person mapping to the model mapper
-            mapper.AddMappings(new List<System.Type> { typeof(GuestMap), typeof(RoomMap), typeof(BookingMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(ArtistMap), typeof(SongMap)});
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }
