@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONDbAPI", "JSONDbAPI\JSONDbAPI.csproj", "{7CF46037-37B0-4A8A-A309-874B1B5672AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONToDatabaseReader", "JSONToDatabaseReader\JSONToDatabaseReader.csproj", "{186AE079-7BF7-4D7F-ACFB-52F5079C6197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONToDatabaseReaderTestProject", "UnitTestProject\JSONToDatabaseReaderTestProject.csproj", "{1982DEB9-82A4-49F7-AC73-9642DCEE793F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7CF46037-37B0-4A8A-A309-874B1B5672AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CF46037-37B0-4A8A-A309-874B1B5672AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CF46037-37B0-4A8A-A309-874B1B5672AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186AE079-7BF7-4D7F-ACFB-52F5079C6197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186AE079-7BF7-4D7F-ACFB-52F5079C6197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186AE079-7BF7-4D7F-ACFB-52F5079C6197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186AE079-7BF7-4D7F-ACFB-52F5079C6197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1982DEB9-82A4-49F7-AC73-9642DCEE793F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1982DEB9-82A4-49F7-AC73-9642DCEE793F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1982DEB9-82A4-49F7-AC73-9642DCEE793F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1982DEB9-82A4-49F7-AC73-9642DCEE793F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
