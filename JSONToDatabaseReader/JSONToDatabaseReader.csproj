@@ -8,8 +8,4 @@
     <PackageReference Include="NHibernate" Version="5.1.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NHibernate\" />
-  </ItemGroup>
-
 </Project>
