@@ -53,7 +53,7 @@ namespace JSONToDatabaseReader.Repository
         {
             var mapper = new ModelMapper();
             //Add the person mapping to the model mapper
-            mapper.AddMappings(new List<System.Type> { typeof(Mappings.ArtistMap), typeof(Mappings.SongMap) });
+            mapper.AddMappings(new List<System.Type> { typeof(GuestMap), typeof(RoomMap), typeof(BookingMap) });
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }

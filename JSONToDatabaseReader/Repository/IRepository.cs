@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace JSONToDatabaseReader.Repository
+namespace Hotel.Data.Repository
 {
     public interface IRepository<T>
     {
