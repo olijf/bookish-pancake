@@ -45,7 +45,11 @@ namespace JSONToDatabaseReader.Repository
         {
             var configuration = new Configuration();
             //Loads properties from hibernate.cfg.xml
-            configuration.Configure();
+            //configuration.Configure();
+            //configuration.SetProperty("connection.driver_class", "NHibernate.Driver.SQLite20Driver");
+            configuration.SetProperty("connection.connection_string", "Data Source=test.db;Version=3;New=True");
+            configuration.SetProperty("dialect", "NHibernate.Dialect.SQLiteDialect");
+
             //Loads nhibernate mappings 
             configuration.AddDeserializedMapping(CreateMapping(), null);
             return configuration;

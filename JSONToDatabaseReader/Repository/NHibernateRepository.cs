@@ -18,7 +18,7 @@ namespace JSONToDatabaseReader.Repository
             }
         }
 
-        public T Get(Guid id)
+        public T Get(int id)
         {
             return session.Get<T>(id);
         }

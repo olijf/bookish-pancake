@@ -63,11 +63,13 @@ namespace UnitTestProject
         [TestMethod]
         public void SerializeArtistTest()
         {
-            var testData = new Artist();
-            testData.Id = 381;
-            testData.Name = "Hans";
+            var testData = new Artist
+            {
+                Id = 381,
+                Name = "Hans"
+            };
 
-            var result = JSONToDatabaseReader.JSON.Serialization.Serialize<Artist>(testData);
+            var result = JSONToDatabaseReader.JSON.Serialization.Serialize(testData);
 
             Assert.IsTrue(result != string.Empty);
             Assert.IsTrue(result.Contains("Hans"));
