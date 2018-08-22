@@ -1,4 +1,4 @@
-﻿using JSONToDatabaseReader.Datamodel;
+using JSONToDatabaseReader.Datamodel;
 using JSONToDatabaseReader.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

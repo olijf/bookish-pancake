@@ -44,15 +44,25 @@ namespace JSONToDatabaseReaderTestProject
         {
             var repository = new NHibernateRepository<Artist>();
             NHibernateHelper.CreateDatabaseIfNeeded();
-            for (int i = 0; i < 3; i++)
+            var testData = @"[{
+    		""Id"": 760,
+            ""Name"": ""\""Weird Al\"" Yankovic""
+              }, {
+    		""Id"": 3,
+    		""Name"": "".38 Special""
+            	}, {
+    		""Id"": 1,
+    		""Name"": ""3 Doors Down""
+         	}]";
+
+            var testObject = JSONToDatabaseReader.JSON.Serialization.Deserialize<List<Artist>>(testData);
+            var resultingList = ReadJSONAndWriteToDb.FilterEnumerable(testObject, x => x.Name.Contains("3"));
+            foreach (var item in resultingList)
             {
-                var testObject = new Artist
-                {
-                    Id = i,
-                    Name = "TestBoodschap"
-                };
-                repository.Save(testObject);
+                repository.Save(item);
             }
+            var nrOfArtists = repository.GetAll().Count;
+            Assert.IsTrue(nrOfArtists == 2);
         }
     }
 }
