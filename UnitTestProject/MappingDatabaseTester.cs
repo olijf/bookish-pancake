@@ -13,10 +13,13 @@ namespace JSONToDatabaseReaderTestProject
         [TestMethod]
         public void MappingTest()
         {
-            var testObject = new Artist();
-            testObject.Id = 123;
-            testObject.Name = "TestBoodschap";
+            var testObject = new Artist
+            {
+                Id = 123,
+                Name = "TestBoodschap"
+            };
             var repository = new NHibernateRepository<Artist>();
+            NHibernateHelper.CreateDatabaseIfNeeded();
             repository.Save(testObject);
             var result = repository.Get(123);
             Assert.IsTrue(testObject == result);

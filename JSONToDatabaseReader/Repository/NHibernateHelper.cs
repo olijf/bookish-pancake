@@ -46,8 +46,8 @@ namespace JSONToDatabaseReader.Repository
             var configuration = new Configuration();
             //Loads properties from hibernate.cfg.xml
             //configuration.Configure();
-            //configuration.SetProperty("connection.driver_class", "NHibernate.Driver.SQLite20Driver");
-            configuration.SetProperty("connection.connection_string", "Data Source=test.db;Version=3;New=True");
+            configuration.SetProperty("connection.driver_class", "MilestoneTG.NHibernate.Driver.Sqlite.Microsoft.MicrosoftSqliteDriver, MilestoneTG.NHibernate.Driver.Sqlite.Microsoft");
+            configuration.SetProperty("connection.connection_string", "Data Source=test.db;");
             configuration.SetProperty("dialect", "NHibernate.Dialect.SQLiteDialect");
 
             //Loads nhibernate mappings 
@@ -67,8 +67,8 @@ namespace JSONToDatabaseReader.Repository
 
         public static void CreateDatabaseIfNeeded()
         {
-            var schemaUpdate = new SchemaUpdate(NHibernateHelper.Configuration);
-            schemaUpdate.Execute(false, true);
+            var schemaUpdate = new SchemaExport(NHibernateHelper.Configuration);
+            schemaUpdate.Execute(false, true, false);
         }
     }
 }

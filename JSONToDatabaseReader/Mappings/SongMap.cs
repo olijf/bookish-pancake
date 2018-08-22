@@ -8,7 +8,7 @@ namespace JSONToDatabaseReader.Mappings
         public SongMap()
         {
             Table("songs");
-            Id(x => x.Id, m => m.Generator(Generators.Sequence));
+            Id(x => x.Id, m => m.Generator(Generators.Assigned));
             Property(x => x.Artist);
             Property(x => x.Album);
             Property(x => x.Name);

@@ -8,7 +8,7 @@ namespace JSONToDatabaseReader.Mappings
         public ArtistMap()
         {
             Table("artists");
-            Id(x => x.Id, m => m.Generator(Generators.Sequence));
+            Id(x => x.Id, m => m.Generator(Generators.Assigned));
             Property(x => x.Name);
         }
     }
