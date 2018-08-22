@@ -29,7 +29,7 @@ namespace JSONToDatabaseReader.Datamodel
         public virtual string Name { get; set; }
 
         [DataMember]
-        public virtual int Year { get; set; }
+        public virtual int? Year { get; set; }
 
         [DataMember]
         public virtual string Artist { get; set; }
@@ -38,10 +38,10 @@ namespace JSONToDatabaseReader.Datamodel
         public virtual string Shortname { get; set; }
 
         [DataMember]
-        public virtual int Bpm { get; set; }
+        public virtual int? Bpm { get; set; }
 
         [DataMember]
-        public virtual int Duration { get; set; }
+        public virtual int? Duration { get; set; }
 
         [DataMember]
         public virtual string Genre { get; set; }

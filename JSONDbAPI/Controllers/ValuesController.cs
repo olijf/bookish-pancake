@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JSONToDatabaseReader.Datamodel;
+using JSONToDatabaseReader.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JSONDbAPI.Controllers
@@ -10,6 +12,12 @@ namespace JSONDbAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly NHibernateRepository<Song> _context;
+
+        public ValuesController(NHibernateRepository<Song> context)
+        {
+            _context = context;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
