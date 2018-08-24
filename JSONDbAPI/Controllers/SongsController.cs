@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using JSONToDatabaseReader.Datamodel;
 using JSONToDatabaseReader.Extensions;
 using JSONToDatabaseReader.Repository;
@@ -19,10 +17,14 @@ namespace JSONDbAPI.Controllers
         {
             _context = context;
         }
-        // GET api/values
+        // GET api/values?search=filter
         [HttpGet]
-        public ActionResult<IEnumerable<Song>> Get()
+        public ActionResult<IEnumerable<Song>> Get([FromQuery(Name = "search")] string filter)
         {
+            if (filter != null)
+            {
+                return _context.GetQueryable().Where(x => x.Name.Contains(filter) || x.Genre.Contains(filter) || x.Artist.Contains(filter)).ToList();
+            }
             return _context.GetAll();
         }
 
