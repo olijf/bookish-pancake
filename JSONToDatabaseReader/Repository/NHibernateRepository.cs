@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using NHibernate;
 using System.Linq;
 using System.Collections.Generic;
@@ -35,6 +35,11 @@ namespace JSONToDatabaseReader.Repository
         public List<T> GetAll()
         {
             return session.Query<T>().ToList();
+        }
+
+        public void Delete(int id)
+        {
+            Delete(Get(id));
         }
 
         public void Delete(T item)
