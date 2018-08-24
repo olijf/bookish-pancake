@@ -21,8 +21,12 @@ namespace JSONDbAPI.Controllers
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Song>> Get()
+        public ActionResult<IEnumerable<Song>> Get([FromQuery(Name = "search")] string filter)
         {
+            if (filter != null)
+            {
+                return _context.GetQueryable().Where(x => x.Name.Contains(filter) || x.Genre.Contains(filter)).ToList();
+            }
             return _context.GetAll();
         }
 

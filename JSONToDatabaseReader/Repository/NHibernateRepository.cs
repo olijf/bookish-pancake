@@ -37,6 +37,11 @@ namespace JSONToDatabaseReader.Repository
             return session.Query<T>().ToList();
         }
 
+        public IQueryable<T> GetQueryable()
+        {
+            return session.Query<T>();
+        }
+
         public void Delete(int id)
         {
             Delete(Get(id));
