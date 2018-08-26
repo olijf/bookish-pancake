@@ -10,22 +10,23 @@ namespace JSONDbAPI.Controllers
     [ApiController]
     public class ArtistsController : ControllerBase
     {
-        private readonly NHibernateRepository<Song> _context;
+        private readonly IRepository<Song> _context;
 
-        public ArtistsController(NHibernateRepository<Song> context)
+        public ArtistsController(IRepository<Song> context)
         {
             _context = context;
         }
 
         // GET: api/Artists?search=filter
         [HttpGet]
-        public IEnumerable<string> Get([FromQuery(Name = "search")] string filter)
+        public IEnumerable<string> Get([FromQuery(Name = "search")] string filter = null)
         {
+            var queryable = _context.GetQueryable();
             if (filter != null)
             {
-                return _context.GetQueryable().Where(x => x.Artist.Contains(filter) || x.Genre.Contains(filter)).Select(x => x.Artist);
+                return queryable.Where(x => x.Artist.Contains(filter) || x.Genre.Contains(filter)).Select(x => x.Artist);
             }
-            return _context.GetQueryable().Select(x => x.Artist);
+            return queryable.Select(x => x.Artist);
         }
     }
 }

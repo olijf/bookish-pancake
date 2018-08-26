@@ -6,7 +6,7 @@ using System.Text;
 namespace JSONToDatabaseReader.Datamodel
 {
     [DataContract]
-    public class Song
+    public class Song : IRepositoryObject
     {
         /*{
             "Id": 190,
