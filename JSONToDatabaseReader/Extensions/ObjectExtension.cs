@@ -5,6 +5,8 @@ namespace JSONToDatabaseReader.Extensions
 {
     public static class ObjectExtension
     {
+
+        // Copies the different values of source onto target
         public static void CopyDeltaProperties(this object target, object source)
         {
             Type TargetType = target.GetType();

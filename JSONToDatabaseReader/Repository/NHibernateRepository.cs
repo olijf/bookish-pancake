@@ -31,7 +31,7 @@ namespace JSONToDatabaseReader.Repository
                 transaction.Commit();
             }
         }
-        
+
         public List<T> GetAll()
         {
             return session.Query<T>().ToList();
@@ -44,7 +44,9 @@ namespace JSONToDatabaseReader.Repository
 
         public void Delete(int id)
         {
-            Delete(Get(id));
+            var item = Get(id);
+            if (item != null)
+                Delete(item); 
         }
 
         public void Delete(T item)

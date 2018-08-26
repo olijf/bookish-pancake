@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JSONToDatabaseReader.Datamodel;
+using JSONToDatabaseReader.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -22,16 +23,16 @@ namespace JSONDbAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             var repository = Prepare();
-            services.AddSingleton(repository);
+            services.AddSingleton<IRepository<Song>>(repository);
         }
 
-        private JSONToDatabaseReader.Repository.NHibernateRepository<Song> Prepare()
+        private NHibernateRepository<Song> Prepare()
         {
             var firstrun = !System.IO.File.Exists("test.db");
             if (firstrun)
             {
-                JSONToDatabaseReader.Repository.NHibernateHelper.CreateDatabaseIfNeeded();
-                var repository = new JSONToDatabaseReader.Repository.NHibernateRepository<Song>();
+                NHibernateHelper.CreateDatabaseIfNeeded();
+                var repository = new NHibernateRepository<Song>();
                 var filename = Configuration["JSONSongFile"];
                 var songlist = JSONToDatabaseReader.ReadJSONAndWriteToDb.ReadFile<List<Song>>(filename);
                 var filteredsonglist = JSONToDatabaseReader.ReadJSONAndWriteToDb.FilterEnumerable(songlist, x => x.Genre.Contains("Metal") && x.Year < 2016);

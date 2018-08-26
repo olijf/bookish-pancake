@@ -11,15 +11,15 @@ namespace JSONDbAPI.Controllers
     [ApiController]
     public class SongsController : ControllerBase
     {
-        private readonly NHibernateRepository<Song> _context;
+        private readonly IRepository<Song> _context;
 
-        public SongsController(NHibernateRepository<Song> context)
+        public SongsController(IRepository<Song> context)
         {
             _context = context;
         }
         // GET api/values?search=filter
         [HttpGet]
-        public ActionResult<IEnumerable<Song>> Get([FromQuery(Name = "search")] string filter)
+        public ActionResult<IEnumerable<Song>> Get([FromQuery(Name = "search")] string filter = null)
         {
             if (filter != null)
             {

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace JSONToDatabaseReader.Datamodel
 {
     [DataContract]
-    public class Artist
+    public class Artist : IRepositoryObject
     {
         /*
          * 		"Id": 760, "Name": "\"Weird Al\" Yankovic"
