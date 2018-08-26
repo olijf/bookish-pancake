@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
@@ -10,7 +9,7 @@ namespace JSONToDatabaseReader.JSON
         public static T Deserialize<T>(string data) where T : class, new()
         {
             var deserializedObject = new T();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(deserializedObject.GetType());
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
             using (MemoryStream s = new MemoryStream(Encoding.UTF8.GetBytes(data)))
             {
                 deserializedObject = ser.ReadObject(s) as T;
